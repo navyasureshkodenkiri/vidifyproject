@@ -1,0 +1,13 @@
+import React from 'react';
+import { FaSearch as FaSearchIcon } from 'react-icons/fa';
+
+export default function SearchComponent() {
+  return (
+    <div className="search-container">
+      <input type="text" placeholder="Search..." className="search-input" />
+      <div className="search-icon" onClick={() => {alert('search')}}>
+        <FaSearchIcon />
+      </div>
+    </div>
+  );
+}

@@ -1,0 +1,172 @@
+/* Root variables */
+:root {
+  --bodyBackground: #0b0b0b;
+  --componentBackground: #1f1f1f;
+  --textColor: #ffffff;
+  --hoverColor: rgb(43, 44, 44);
+}
+
+/* Global Styles */
+body {
+  margin: 0;
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Roboto", "Oxygen",
+    "Ubuntu", "Cantarell", "Fira Sans", "Droid Sans", "Helvetica Neue",
+    sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  background-color: var(--bodyBackground);
+  height: 100%;
+  overflow: hidden;
+}
+
+::-webkit-scrollbar {
+  display: none;
+}
+
+/* Main container style */
+.main {
+  display: flex;
+  color: var(--textColor);
+  height: 100vh;
+}
+
+/* Header Styles */
+.header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 10px 20px;
+  background-color: #333;
+  color: #fff;
+}
+
+.header .left {
+  display: flex;
+  align-items: center;
+}
+
+.header .left button {
+  all: inherit;
+}
+
+.header .logo {
+  margin-left: 10px;
+  font-size: 1.5rem;
+  font-weight: bold;
+}
+
+.header .right {
+  display: flex;
+  align-items: center;
+}
+
+.header .icon {
+  margin: 3px;
+  padding: 8px;
+  font-size: 1.2rem;
+  cursor: pointer;
+}
+
+.header .icon:hover {
+  color: #ccc;
+}
+
+/* Sidebar Styles */
+.side-now-bar {
+  background-color: var(--componentBackground);
+  padding: 3px;
+  width: 45px;
+  height: calc(100vh - 60px);
+  overflow: scroll;
+  transition: width 0.1s ease, background-color 0.3s ease;
+}
+
+.side-now-bar:hover {
+  width: 150px;
+}
+
+.side-now-bar .nav-icon-content {
+  display: flex;
+  margin: 5px;
+  align-items: center;
+  padding: 2px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.side-now-bar .nav-icon-content:hover {
+  background-color: var(--hoverColor);
+}
+
+.side-now-bar .nav-icon-content .nav-icon {
+  padding: 5px;
+}
+
+.side-now-bar .nav-icon-content .nav-icon-name {
+  display: none;
+  transition: opacity 1s ease;
+}
+
+.side-now-bar:hover .nav-icon-name {
+  display: inline;
+  opacity: 1;
+  transition: opacity 0.1s ease-in-out;
+}
+
+/* Search Component Styles */
+.search-container {
+  display: flex;
+  align-items: center;
+  position: relative;
+}
+
+.search-icon {
+  position: absolute;
+  left: 10px;
+  color: gray;
+}
+
+.search-input {
+  padding: 10px 30px;
+  width: 100%;
+  border-radius: 4px;
+  outline: none;
+}
+
+/* Modal Styles */
+.modal-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.5);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 1000;
+}
+
+.modal-content {
+  background: white;
+  padding: 20px;
+  border-radius: 8px;
+  width: 80%;
+  max-width: 600px;
+  height: auto; /* Adjusted to fit content */
+  position: relative;
+}
+
+/* Responsive Styles */
+@media (max-width: 600px) {
+  .side-now-bar {
+    width: 150px;
+    overflow: scroll;
+    position: fixed;
+    height: 90%;
+  }
+
+  .side-now-bar .nav-icon-content .nav-icon-name {
+    display: inline;
+  }
+}
