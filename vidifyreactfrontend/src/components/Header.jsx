@@ -8,8 +8,10 @@ import {
 } from "react-icons/fa";
 import Modal from "./Modal";
 import SearchComponent from "./SearchComponent";
+import { useNavigate } from "react-router-dom";
 
 export default function Header({ isSideBarOpen, setIsSideBarOpen }) {
+  const navigation = useNavigate()
   const [isModalOpen, setIsModalOpen] = useState(false);
 
   const toggleModal = () => {
@@ -29,8 +31,8 @@ export default function Header({ isSideBarOpen, setIsSideBarOpen }) {
       </div>
       <div className="right">
         <FaSearch className="icon" onClick={toggleModal} />
-        <FaBell className="icon" />
-        <FaUser className="icon" />
+        <FaBell className="icon"  onClick={() => navigation('/notifications')}/>
+        <FaUser className="icon" onClick={() => navigation('/profile')}/>
       </div>
 
       <Modal isOpen={isModalOpen} onClose={toggleModal}>
