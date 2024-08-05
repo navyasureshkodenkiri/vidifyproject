@@ -1,4 +1,4 @@
-const serverUrl = "http://localhost:3001";
+const serverUrl = "http://192.168.0.126:3001";
 
 const API = {
   login: serverUrl + "/login",

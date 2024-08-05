@@ -18,6 +18,9 @@ body {
   height: 100%;
   overflow: hidden;
 }
+h1{
+  margin: 1px;
+}
 
 ::-webkit-scrollbar {
   display: none;
@@ -37,7 +40,7 @@ body {
   align-items: center;
   padding: 10px 20px;
   background-color: #333;
-  color: #fff;
+  color: var(--textColor);
 }
 
 .header .left {
@@ -157,8 +160,6 @@ body {
   position: relative;
 }
 
-
-
 /* Auth Screen Styles */
 .auth-screen {
   display: flex;
@@ -211,8 +212,11 @@ body {
   animation: spin 1s linear infinite;
 }
 
-
 @media (max-width: 600px) {
+  .header {
+    padding: 10px 5px;
+  }
+
   .side-now-bar {
     width: 150px;
     overflow: scroll;
