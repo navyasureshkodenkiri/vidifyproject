@@ -3,6 +3,8 @@ import Header from "../components/Header";
 import SideNowBar from "../components/SideNowBar";
 import { Route, Routes } from "react-router-dom";
 import HomeScreen from "./HomePage/HomeScreen";
+import NotificationScreen from "./Notification/Notification";
+import ProfileScreen from "./Profile/Profile";
 
 export default function MainScreen() {
     const [isSideBarOpen, setIsSideBarOpen] = useState(false)
@@ -14,6 +16,8 @@ export default function MainScreen() {
         <section>
           <Routes>
             <Route path="/*" element={<HomeScreen />} />
+            <Route path="notifications" element={<NotificationScreen />} />
+            <Route path="profile" element={<ProfileScreen />} />
           </Routes>
         </section>
       </main>
