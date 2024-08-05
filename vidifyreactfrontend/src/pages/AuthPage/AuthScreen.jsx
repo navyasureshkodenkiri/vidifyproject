@@ -43,7 +43,6 @@ const AuthScreen = () => {
       if (data.success) {
         login(data.token);
         navigate("/");
-        alert("OTP verified successfully");
       } else {
         alert(data.message);
       }
@@ -96,9 +95,12 @@ const AuthScreen = () => {
           </button>
         </>
       )}
-      <button onClick={() => setIsRegister(!isRegister)} disabled={isLoading}>
+      {
+        !statusSuccess &&      <button onClick={() => setIsRegister(!isRegister)} disabled={isLoading}>
         Switch to {isRegister ? "Login" : "Register"}
       </button>
+      }
+
     </div>
   );
 };
