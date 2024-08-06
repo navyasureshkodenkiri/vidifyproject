@@ -31,7 +31,7 @@ app.get("/getVideos", async (req, res) => {
   getVideos(req, res);
 });
 
-app.get("/getVideoCategories", async (req, res) => {
+app.post("/getVideoCategories", async (req, res) => {
   getVideosCategories(req, res);
 });
 

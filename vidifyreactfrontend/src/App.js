@@ -11,12 +11,12 @@ function App() {
     <BrowserRouter>
       <Routes>
         <Route
-          path="/login"
-          element={isLoggedIn ? <Navigate to="/" /> : <AuthScreen />}
-        />
-        <Route
           path="/*"
           element={isLoggedIn ? <MainScreen /> : <Navigate to="/login" />}
+        />
+        <Route
+          path="/login"
+          element={isLoggedIn ? <Navigate to="/" /> : <AuthScreen />}
         />
       </Routes>
     </BrowserRouter>

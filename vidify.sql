@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Aug 02, 2024 at 11:27 AM
+-- Generation Time: Aug 06, 2024 at 10:29 AM
 -- Server version: 10.4.32-MariaDB
 -- PHP Version: 8.2.12
 
@@ -56,6 +56,39 @@ INSERT INTO `categories` (`id`, `name`) VALUES
 -- --------------------------------------------------------
 
 --
+-- Table structure for table `otps`
+--
+
+CREATE TABLE `otps` (
+  `id` int(11) NOT NULL,
+  `email` varchar(255) NOT NULL,
+  `otp` varchar(6) NOT NULL,
+  `created_at` timestamp NOT NULL DEFAULT current_timestamp()
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `users`
+--
+
+CREATE TABLE `users` (
+  `id` int(11) NOT NULL,
+  `username` varchar(255) NOT NULL,
+  `email` varchar(255) NOT NULL,
+  `password` varchar(255) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+--
+-- Dumping data for table `users`
+--
+
+INSERT INTO `users` (`id`, `username`, `email`, `password`) VALUES
+(2, 'naaz', 'shahanazpa04@gmail.com', '$2a$10$15a1wYoWaBQbGOuYYJVJkOBXYSsFD2OyJ7GsJkUPjz478Veh8AN0u');
+
+-- --------------------------------------------------------
+
+--
 -- Table structure for table `videos`
 --
 
@@ -79,7 +112,9 @@ CREATE TABLE `videos` (
 --
 
 INSERT INTO `videos` (`video_id`, `uploaded_by`, `title`, `description`, `file_path`, `thumbnail_path`, `category_name`, `uploaded_date`, `views`, `duration`, `language`, `is_subscribed`) VALUES
-(1, 'shahanaz', 'album song', 'malayam album songs', 'videos/aliziyan.mp4', 'thumbnails/aliziyan.jpg', 'Music', '2024-08-16 14:28:55', 1, 8, 'malayalam', 0);
+(1, 'shahanaz', 'album song', 'malayam album songs', 'videos/aliziyan.mp4', 'thumbnails/aliziyan.jpg', 'Music', '2024-08-16 14:28:55', 1, 8, 'malayalam', 0),
+(2, '[navya]', '[sss]', '[nnn]', '[1.mp4]', '[1.jpg]', '[Comedy]', '0000-00-00 00:00:00', 0, 0, '[kannada]', 0),
+(3, '[nusaiba', 'mmm', 'aa', '[2.mp4]', '2.jpg', 'Gaming', '0000-00-00 00:00:00', 0, 0, 'english', 0);
 
 --
 -- Indexes for dumped tables
@@ -90,6 +125,19 @@ INSERT INTO `videos` (`video_id`, `uploaded_by`, `title`, `description`, `file_p
 --
 ALTER TABLE `categories`
   ADD PRIMARY KEY (`id`);
+
+--
+-- Indexes for table `otps`
+--
+ALTER TABLE `otps`
+  ADD PRIMARY KEY (`id`);
+
+--
+-- Indexes for table `users`
+--
+ALTER TABLE `users`
+  ADD PRIMARY KEY (`id`),
+  ADD UNIQUE KEY `email` (`email`);
 
 --
 -- Indexes for table `videos`
@@ -108,10 +156,22 @@ ALTER TABLE `categories`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=16;
 
 --
+-- AUTO_INCREMENT for table `otps`
+--
+ALTER TABLE `otps`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
+
+--
+-- AUTO_INCREMENT for table `users`
+--
+ALTER TABLE `users`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+
+--
 -- AUTO_INCREMENT for table `videos`
 --
 ALTER TABLE `videos`
-  MODIFY `video_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+  MODIFY `video_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;

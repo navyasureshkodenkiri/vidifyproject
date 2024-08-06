@@ -2,8 +2,10 @@ import React from "react";
 import { IoHome } from "react-icons/io5";
 import { GiFire, GiMusicSpell, GiFilmProjector } from "react-icons/gi";
 import { FaGamepad, FaRegLaugh } from "react-icons/fa";
+import { useNavigate } from "react-router-dom";
 
 export default function SideNowBar() {
+  const navigate = useNavigate();
   const menuItems = [
     {
       icon: <IoHome size={20} />,
@@ -15,41 +17,34 @@ export default function SideNowBar() {
       name: "Trending",
       link: "/trending",
     },
-    {
-      icon: <GiFire size={20} />,
-      name: "Trending",
-      link: "/trending",
-    },
   ];
 
-  const categoryItem = [
+  const categoryItems = [
     {
       icon: <GiMusicSpell size={20} />,
       name: "Music",
-      link: "/category/music",
+      link: "/videosByCategories/music",
     },
     {
       icon: <GiFilmProjector size={20} />,
       name: "Movies",
-      link: "/category/movies",
+      link: "/videosByCategories/movies",
     },
     {
       icon: <FaGamepad size={20} />,
       name: "Gaming",
-      link: "/category/gaming",
+      link: "/videosByCategories/gaming",
     },
     {
       icon: <FaRegLaugh size={20} />,
       name: "Comedy",
-      link: "/category/comedy",
+      link: "/videosByCategories/comedy",
     },
-   
-
   ];
 
   function NavItem({ icon, name, link }) {
     return (
-      <div className="nav-icon-content">
+      <div className="nav-icon-content" onClick={() => navigate(link)}>
         <span className="nav-icon">{icon}</span>
         <span className="nav-icon-name">{name}</span>
       </div>
@@ -64,7 +59,7 @@ export default function SideNowBar() {
 
       <hr />
 
-      {categoryItem.map((item, index) => (
+      {categoryItems.map((item, index) => (
         <NavItem key={index} icon={item.icon} name={item.name} link={item.link} />
       ))}
     </aside>
