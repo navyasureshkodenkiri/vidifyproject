@@ -12,9 +12,14 @@ const app = express();
 app.use(cors());
 app.use(json());
 
+// Serve static files from the 'videos' and 'thumbnails' directories
+app.use('/videos', express.static('videos'));
+app.use('/thumbnails', express.static('thumbnails'));
+
 app.get("/", (req, res) => {
   res.send("Hello World!");
 });
+
 app.post("/register", (req, res) => {
   registerService(req, res);
 });

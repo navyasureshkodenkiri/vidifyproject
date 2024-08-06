@@ -18,7 +18,8 @@ body {
   height: 100%;
   overflow: hidden;
 }
-h1{
+
+h1 {
   margin: 1px;
 }
 
@@ -31,6 +32,7 @@ h1{
   display: flex;
   color: var(--textColor);
   height: 100vh;
+  overflow: hidden;
 }
 
 /* Header Styles */
@@ -41,6 +43,7 @@ h1{
   padding: 10px 20px;
   background-color: #333;
   color: var(--textColor);
+  z-index: 1;
 }
 
 .header .left {
@@ -81,7 +84,11 @@ h1{
   width: 45px;
   height: calc(100vh - 60px);
   overflow: scroll;
+  position: fixed;
+  top: 60px;
+  left: 0;
   transition: width 0.1s ease, background-color 0.3s ease;
+  z-index: 1;
 }
 
 .side-now-bar:hover {
@@ -116,24 +123,18 @@ h1{
   transition: opacity 0.1s ease-in-out;
 }
 
-/* Search Component Styles */
-.search-container {
-  display: flex;
-  align-items: center;
-  position: relative;
+/* Main Container Content Styles */
+.mainContainer {
+  padding: 10px;
+  overflow: auto;
+  margin-left: 45px; /* Account for the sidebar width */
+  width: calc(100% - 45px); /* Adjust width to fit main content */
+  transition: margin-left 0.1s ease, width 0.1s ease;
 }
 
-.search-icon {
-  position: absolute;
-  left: 10px;
-  color: gray;
-}
-
-.search-input {
-  padding: 10px 30px;
-  width: 100%;
-  border-radius: 4px;
-  outline: none;
+.side-now-bar:hover ~ .mainContainer {
+  margin-left: 150px; /* Adjust for expanded sidebar width */
+  width: calc(100% - 150px); /* Adjust width for expanded sidebar */
 }
 
 /* Modal Styles */
@@ -212,12 +213,47 @@ h1{
   animation: spin 1s linear infinite;
 }
 
+/* Video Cards */
 .VideoCards {
-  
+  display: flex;
+  flex-wrap: wrap;
+  gap: 16px;
 }
 
+.VideoCards .videoCard {
+  background-color: var(--componentBackground);
+  width: 300px;
+  height: 200px;
+  border-radius: 10px;
+  padding: 2px;
+  position: relative;
+  overflow: hidden;
+  cursor: pointer;
+  transition: transform 0.1s;
+}
 
+.VideoCards .videoCard:hover {
+  transform: scale(1.03);
+}
 
+.VideoCards .videoCard video,
+.VideoCards .videoCard img {
+  width: 100%;
+  height: 100%;
+  border-radius: 10px;
+  object-fit: cover;
+}
+
+.VideoCards .videoCard .videoInfo {
+  position: absolute;
+  bottom: 0px;
+  left: 0px;
+  right: 0px;
+  color: white;
+  background-color: rgba(0, 0, 0, 0.5);
+  padding: 5px;
+  border-radius: 5px;
+}
 
 @media (max-width: 600px) {
   .header {
@@ -229,10 +265,18 @@ h1{
     overflow: scroll;
     position: fixed;
     height: 90%;
+    top: 10%;
+    left: 0;
+    transition: none;
   }
 
   .side-now-bar .nav-icon-content .nav-icon-name {
     display: inline;
+  }
+
+  .mainContainer {
+    margin-left: 150px;
+    width: calc(100% - 150px);
   }
 }
 

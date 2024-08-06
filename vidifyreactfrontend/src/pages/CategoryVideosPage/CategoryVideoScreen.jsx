@@ -4,7 +4,7 @@ import { useParams } from "react-router-dom";
 import API from "../../services/Api";
 import VideoCards from "../../components/VideoCards";
 
-export default function CategoryVideoScreen() {
+function CategoryVideoScreen() {
   const { category } = useParams();
   const [videos, setVideos] = useState([]);
   const [loading, setLoading] = useState(true);
@@ -31,17 +31,19 @@ export default function CategoryVideoScreen() {
   }
 
   return (
-    <div>
+    <div className="CategoryVideoScreen">
       <h1>{category}</h1>
-      <div>
+      <section>
         {videos.length > 0 ? (
-          videos.map((video, index) => (
-            <VideoCards key={index} video={video} />
-          ))
+          <>
+            <VideoCards videos={videos} />
+          </>
         ) : (
           <p>No videos found for this category.</p>
         )}
-      </div>
+      </section>
     </div>
   );
 }
+
+export default CategoryVideoScreen;

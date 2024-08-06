@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Aug 06, 2024 at 10:29 AM
+-- Generation Time: Aug 06, 2024 at 12:22 PM
 -- Server version: 10.4.32-MariaDB
 -- PHP Version: 8.2.12
 
@@ -113,8 +113,12 @@ CREATE TABLE `videos` (
 
 INSERT INTO `videos` (`video_id`, `uploaded_by`, `title`, `description`, `file_path`, `thumbnail_path`, `category_name`, `uploaded_date`, `views`, `duration`, `language`, `is_subscribed`) VALUES
 (1, 'shahanaz', 'album song', 'malayam album songs', 'videos/aliziyan.mp4', 'thumbnails/aliziyan.jpg', 'Music', '2024-08-16 14:28:55', 1, 8, 'malayalam', 0),
-(2, '[navya]', '[sss]', '[nnn]', '[1.mp4]', '[1.jpg]', '[Comedy]', '0000-00-00 00:00:00', 0, 0, '[kannada]', 0),
-(3, '[nusaiba', 'mmm', 'aa', '[2.mp4]', '2.jpg', 'Gaming', '0000-00-00 00:00:00', 0, 0, 'english', 0);
+(2, 'navya', 'sss', 'nnn', 'videos/1.mp4', 'thumbnails/1.jpg', 'Comedy', '0000-00-00 00:00:00', 0, 0, 'kannada', 0),
+(3, 'nusaiba', 'mmm', 'aa', 'videos/2.mp4', 'thumbnails/2.jpg', 'Gaming', '0000-00-00 00:00:00', 0, 0, 'english', 0),
+(4, 'shanuu', 'aaa', 'bbb', 'videos/3.mp4', 'thumbnails/3.jpg', 'Music', '2024-08-16 14:28:55', 0, 0, 'malayalam', 0),
+(5, 'shanuu', 'aaa', 'bbb', 'videos/4.mp4', 'thumbnails/4.jpg', 'Music', '2024-08-16 14:28:55', 0, 0, 'malayalam', 0),
+(6, 'nithis', 'ddd', 'vvvv', '\nvideos/5.mp4', 'thumbnails/5.jpg', 'Music', '2024-08-08 15:29:49', 0, 0, 'malayalam', 0),
+(7, 'nithi', 'ddd', 'vvvv', '\nvideos/6.mp4', 'thumbnails/6.jpg', 'Music', '2024-08-19 15:29:54', 0, 0, 'malayalam', 0);
 
 --
 -- Indexes for dumped tables
@@ -171,7 +175,7 @@ ALTER TABLE `users`
 -- AUTO_INCREMENT for table `videos`
 --
 ALTER TABLE `videos`
-  MODIFY `video_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
+  MODIFY `video_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=8;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;

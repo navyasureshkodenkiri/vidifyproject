@@ -14,7 +14,7 @@ export default function MainScreen() {
       <Header  isSideBarOpen={isSideBarOpen} setIsSideBarOpen={setIsSideBarOpen}/>
       <main className="main">
         {isSideBarOpen && <SideNowBar />}
-        <section>
+        <section className="mainContainer">
           <Routes>
             <Route path="/*" element={<HomeScreen />} />
             <Route path="notifications" element={<NotificationScreen />} />
