@@ -3,6 +3,7 @@ import React, { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
 import API from "../../services/Api";
 import VideoCards from "../../components/VideoCards";
+import { Skeleton } from 'primereact/skeleton';
 
 function CategoryVideoScreen() {
   const { category } = useParams();
@@ -27,7 +28,7 @@ function CategoryVideoScreen() {
   }, [category]);
 
   if (loading) {
-    return <div>Loading...</div>;
+    return <div><Skeleton width="10rem" height="4rem"></Skeleton></div>;
   }
 
   return (
